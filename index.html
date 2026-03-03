@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fit Mart – Elite Home Fitness | 100% FREE Cash On Delivery</title>
+<meta name="description" content="Fit Mart offers elite home fitness equipment with 100% FREE Cash on Delivery. Shop tummy trimmers, grip strengtheners, and more. Premium quality, delivered free.">
+<meta property="og:title" content="Fit Mart – Elite Home Fitness">
+<meta property="og:description" content="Elite Home Fitness Equipment | 100% FREE Cash On Delivery">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💪</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== CSS VARIABLES ===== */
+:root {
+  --black: #0A0A0A;
+  --dark-blue: #0F172A;
+  --orange: #F97316;
+  --orange-light: #FB923C;
+  --green: #22C55E;
+  --silver: #CBD5E1;
+  --white: #FFFFFF;
+  --gradient-orange: linear-gradient(135deg, #F97316, #FB923C);
+  --gradient-bg: linear-gradient(180deg, #0A0A0A, #111827);
+  --glass-bg: rgba(255,255,255,0.05);
+  --glass-border: rgba(255,255,255,0.08);
+  --glass-glow: rgba(249,115,22,0.15);
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --transition: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font-body);
+  background: var(--gradient-bg);
+  color: var(--silver);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; outline: none; font-family: var(--font-body); }
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 2px; }
+
+/* ===== ANNOUNCEMENT BAR ===== */
+.announcement-bar {
+  background: linear-gradient(90deg, #0a2e1a, #052e16, #0a2e1a);
+  border-bottom: 1px solid rgba(34,197,94,0.2);
+  padding: 10px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 100;
+}
+.announcement-bar::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(34,197,94,0.12), transparent);
+  animation: shimmer 3s infinite linear;
+}
+@keyframes shimmer { to { left: 150%; } }
+.announcement-text {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.announcement-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse-dot 2s infinite; }
+@keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.5;transform:scale(0.7);} }
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 999;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.4s var(--transition);
+}
+.navbar.scrolled {
+  background: rgba(10,10,10,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 12px 24px;
+}
+.nav-logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.02em;
+}
+.nav-logo span { color: var(--orange); }
+.nav-actions { display: flex; align-items: center; gap: 16px; }
+.cart-btn {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  padding: 10px 20px;
+  color: var(--white);
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s var(--transition);
+  backdrop-filter: blur(10px);
+}
+.cart-btn:hover { background: var(--glass-glow); border-color: var(--orange); transform: translateY(-1px); }
+.cart-count {
+  background: var(--gradient-orange);
+  color: var(--white);
+  border-radius: 50%;
+  width: 20px; height: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  min-width: 20px;
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0 24px;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://i.ibb.co/JwbZsrVm/Gemeinsam-schwitzen-Partner-Workout-von-Fitness-Influencerin-Mad-Fit.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  transform: scale(1.05);
+  transition: transform 8s ease-out;
+}
+.hero-bg.loaded { transform: scale(1); }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(10,10,10,0.3) 0%,
+    rgba(10,10,10,0.55) 40%,
+    rgba(10,10,10,0.85) 80%,
+    rgba(10,10,10,0.98) 100%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1.2s var(--transition) 0.3s forwards;
+}
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(34,197,94,0.12);
+  border: 1px solid rgba(34,197,94,0.3);
+  border-radius: 50px;
+  padding: 6px 16px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 28px;
+  box-shadow: 0 0 20px rgba(34,197,94,0.15);
+  animation: glow-green 2s ease-in-out infinite alternate;
+}
+@keyframes glow-green {
+  from { box-shadow: 0 0 10px rgba(34,197,94,0.15); }
+  to { box-shadow: 0 0 30px rgba(34,197,94,0.35); }
+}
+.hero-badge::before { content: '●'; color: var(--green); font-size: 0.5rem; animation: pulse-dot 1.5s infinite; }
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.8rem, 8vw, 6rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+.hero-title em { font-style: normal; color: var(--orange); }
+.hero-subtitle {
+  font-size: clamp(0.9rem, 2.5vw, 1.15rem);
+  color: rgba(203,213,225,0.8);
+  font-weight: 400;
+  margin-bottom: 40px;
+  letter-spacing: 0.01em;
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gradient-orange);
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 16px 40px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 40px rgba(249,115,22,0.4);
+  transition: all 0.3s var(--transition-bounce);
+  position: relative;
+  overflow: hidden;
+}
+.hero-cta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.hero-cta:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 0 60px rgba(249,115,22,0.6); }
+.hero-cta:hover::after { opacity: 1; }
+.hero-cta svg { width: 18px; height: 18px; }
+
+/* Countdown */
+.countdown-wrap {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  animation: fadeUp 1.2s var(--transition) 0.8s forwards;
+}
+.countdown-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(203,213,225,0.5);
+}
+.countdown-timer {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.countdown-block {
+  text-align: center;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 10px 14px;
+  min-width: 56px;
+}
+.countdown-num {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+}
+.countdown-unit {
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(203,213,225,0.4);
+  margin-top: 4px;
+}
+.countdown-sep { font-size: 1.4rem; color: var(--orange); font-weight: 300; margin-bottom: 16px; }
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: fadeUp 1s var(--transition) 1.5s forwards;
+}
+.scroll-mouse {
+  width: 24px; height: 38px;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+.scroll-dot {
+  width: 4px; height: 8px;
+  background: var(--orange);
+  border-radius: 2px;
+  animation: scroll-down 2s ease-in-out infinite;
+}
+@keyframes scroll-down { 0%,100%{transform:translateY(0);opacity:1;} 80%{transform:translateY(12px);opacity:0;} }
+.scroll-text { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+
+/* ===== SECTION STYLES ===== */
+.section { padding: 80px 24px; max-width: 1200px; margin: 0 auto; }
+.section-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 20px;
+}
+.section-tag::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 50%;
+  transform: translateY(-50%);
+  width: 12px; height: 2px;
+  background: var(--orange);
+}
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+.section-subtitle {
+  font-size: 0.95rem;
+  color: rgba(203,213,225,0.6);
+  max-width: 520px;
+  margin-bottom: 56px;
+}
+
+/* ===== PRODUCTS GRID ===== */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+.product-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s var(--transition-bounce);
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+}
+.product-card.visible { opacity: 1; transform: translateY(0); }
+.product-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: rgba(249,115,22,0.3);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(249,115,22,0.1);
+}
+.product-card.trending {
+  border-color: rgba(249,115,22,0.35);
+  box-shadow: 0 0 30px rgba(249,115,22,0.12);
+  animation: trending-pulse 3s ease-in-out infinite;
+}
+@keyframes trending-pulse {
+  0%,100%{ box-shadow: 0 0 20px rgba(249,115,22,0.1); }
+  50%{ box-shadow: 0 0 40px rgba(249,115,22,0.25); }
+}
+.product-img-wrap {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  background: #111;
+}
+.product-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--transition);
+}
+.product-card:hover .product-img-wrap img { transform: scale(1.06); }
+
+/* Ribbon */
+.ribbon {
+  position: absolute;
+  top: 16px; right: -26px;
+  background: var(--gradient-orange);
+  color: var(--white);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 36px;
+  transform: rotate(40deg);
+  z-index: 2;
+  box-shadow: 0 2px 12px rgba(249,115,22,0.5);
+}
+.trending-badge {
+  position: absolute;
+  top: 14px; left: 14px;
+  background: rgba(10,10,10,0.85);
+  border: 1px solid rgba(249,115,22,0.5);
+  border-radius: 50px;
+  padding: 4px 12px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--orange-light);
+  z-index: 2;
+  display: flex; align-items: center; gap: 4px;
+}
+.stock-badge {
+  position: absolute;
+  bottom: 12px; left: 12px;
+  background: rgba(239,68,68,0.12);
+  border: 1px solid rgba(239,68,68,0.3);
+  border-radius: 50px;
+  padding: 4px 12px;
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: #FCA5A5;
+  z-index: 2;
+}
+.product-info { padding: 20px; }
+.product-name {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+.product-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.product-price {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.03em;
+}
+.product-price span { font-size: 0.85rem; font-weight: 500; color: var(--silver); }
+.cod-label {
+  background: rgba(34,197,94,0.1);
+  border: 1px solid rgba(34,197,94,0.25);
+  border-radius: 50px;
+  padding: 3px 10px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+.add-to-cart {
+  width: 100%;
+  background: var(--gradient-orange);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 13px 20px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s var(--transition);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(249,115,22,0.25);
+}
+.add-to-cart:hover { box-shadow: 0 6px 30px rgba(249,115,22,0.5); transform: translateY(-1px); }
+/* Ripple */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  transform: scale(0);
+  animation: ripple-anim 0.6s linear;
+  pointer-events: none;
+}
+@keyframes ripple-anim { to { transform: scale(4); opacity: 0; } }
+
+/* ===== CART DRAWER ===== */
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s var(--transition);
+}
+.cart-overlay.open { opacity: 1; pointer-events: all; }
+.cart-drawer {
+  position: fixed;
+  top: 0; right: 0;
+  width: min(420px, 100vw);
+  height: 100vh;
+  background: rgba(15,23,42,0.96);
+  backdrop-filter: blur(20px);
+  border-left: 1px solid var(--glass-border);
+  z-index: 1001;
+  transform: translateX(100%);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+.cart-drawer.open { transform: translateX(0); }
+.cart-header {
+  padding: 24px;
+  border-bottom: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cart-title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--white);
+}
+.cart-close {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--silver);
+  font-size: 1.2rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.cart-close:hover { background: rgba(249,115,22,0.15); color: var(--orange); }
+.cart-items { flex: 1; overflow-y: auto; padding: 20px 24px; }
+.cart-items::-webkit-scrollbar { width: 3px; }
+.cart-items::-webkit-scrollbar-thumb { background: var(--orange); }
+.cart-item {
+  display: flex;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.cart-item-img {
+  width: 64px; height: 64px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: #111;
+  flex-shrink: 0;
+}
+.cart-item-info { flex: 1; }
+.cart-item-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+.cart-item-price { font-size: 0.9rem; font-weight: 700; color: var(--orange); }
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+.qty-btn {
+  width: 26px; height: 26px;
+  border-radius: 6px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--white);
+  font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  line-height: 1;
+}
+.qty-btn:hover { background: rgba(249,115,22,0.2); border-color: var(--orange); }
+.qty-num { font-size: 0.85rem; font-weight: 600; color: var(--white); min-width: 20px; text-align: center; }
+.remove-btn {
+  background: none;
+  border: none;
+  color: rgba(203,213,225,0.3);
+  font-size: 0.7rem;
+  cursor: pointer;
+  margin-left: auto;
+  transition: color 0.2s;
+}
+.remove-btn:hover { color: #EF4444; }
+.cart-empty {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  height: 200px;
+  color: rgba(203,213,225,0.3);
+  font-size: 0.9rem;
+  gap: 12px;
+}
+.cart-empty-icon { font-size: 2.5rem; opacity: 0.3; }
+.cart-footer {
+  padding: 20px 24px;
+  border-top: 1px solid var(--glass-border);
+}
+.cart-cod-note {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(34,197,94,0.08);
+  border: 1px solid rgba(34,197,94,0.2);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--green);
+  margin-bottom: 16px;
+  letter-spacing: 0.03em;
+}
+.cart-total-row {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 16px;
+}
+.cart-total-label { font-size: 0.85rem; color: var(--silver); }
+.cart-total-val {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--white);
+}
+.checkout-btn {
+  width: 100%;
+  background: var(--gradient-orange);
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 16px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(249,115,22,0.3);
+  transition: all 0.3s var(--transition-bounce);
+}
+.checkout-btn:hover { box-shadow: 0 6px 40px rgba(249,115,22,0.5); transform: translateY(-2px); }
+.checkout-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+/* ===== UPSELL MODAL ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(8px);
+  z-index: 1100;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s var(--transition);
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.upsell-modal {
+  background: linear-gradient(145deg, #0F172A, #0a0a0a);
+  border: 1px solid rgba(249,115,22,0.25);
+  border-radius: 24px;
+  padding: 36px 32px;
+  max-width: 440px;
+  width: 100%;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.8), 0 0 60px rgba(249,115,22,0.08);
+  transform: translateY(20px) scale(0.97);
+  transition: transform 0.4s var(--transition-bounce);
+  position: relative;
+}
+.modal-overlay.open .upsell-modal { transform: translateY(0) scale(1); }
+.modal-close {
+  position: absolute;
+  top: 16px; right: 16px;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--silver);
+  font-size: 1.1rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.modal-close:hover { background: rgba(239,68,68,0.15); color: #EF4444; }
+.modal-icon { font-size: 2.5rem; margin-bottom: 12px; }
+.modal-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+.modal-body {
+  font-size: 0.9rem;
+  color: rgba(203,213,225,0.7);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+.modal-product {
+  background: var(--glass-bg);
+  border: 1px solid rgba(249,115,22,0.2);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.modal-product-img {
+  width: 72px; height: 72px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.modal-product-info {}
+.modal-product-name { font-size: 0.9rem; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+.modal-product-price { font-size: 1.2rem; font-weight: 800; color: var(--orange); }
+.modal-actions { display: flex; gap: 12px; }
+.modal-yes {
+  flex: 1;
+  background: var(--gradient-orange);
+  color: var(--white);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 14px;
+  border-radius: 12px;
+  border: none; cursor: pointer;
+  box-shadow: 0 4px 20px rgba(249,115,22,0.3);
+  transition: all 0.3s var(--transition-bounce);
+}
+.modal-yes:hover { box-shadow: 0 6px 30px rgba(249,115,22,0.5); transform: translateY(-2px); }
+.modal-no {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--silver);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 14px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.modal-no:hover { background: rgba(255,255,255,0.08); color: var(--white); }
+
+/* ===== CHECKOUT MODAL ===== */
+.checkout-modal {
+  background: linear-gradient(145deg, #0F172A, #090f1a);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 36px 32px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.8);
+  transform: translateY(20px) scale(0.97);
+  transition: transform 0.4s var(--transition-bounce);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.checkout-modal::-webkit-scrollbar { width: 3px; }
+.modal-overlay.open .checkout-modal { transform: translateY(0) scale(1); }
+.form-group { margin-bottom: 18px; }
+.form-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-bottom: 7px;
+}
+.form-input {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 13px 16px;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  transition: all 0.3s var(--transition);
+  outline: none;
+}
+.form-input:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(249,115,22,0.12);
+  background: rgba(249,115,22,0.04);
+}
+.form-input::placeholder { color: rgba(203,213,225,0.3); }
+textarea.form-input { resize: vertical; min-height: 80px; }
+.submit-btn {
+  width: 100%;
+  background: var(--gradient-orange);
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 16px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  margin-top: 8px;
+  box-shadow: 0 4px 24px rgba(249,115,22,0.3);
+  transition: all 0.3s var(--transition-bounce);
+}
+.submit-btn:hover { box-shadow: 0 6px 40px rgba(249,115,22,0.5); transform: translateY(-2px); }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+/* Success state */
+.success-state {
+  display: none;
+  text-align: center;
+  padding: 20px 0;
+}
+.success-icon { font-size: 3.5rem; margin-bottom: 16px; }
+.success-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+.success-msg { font-size: 0.9rem; color: rgba(203,213,225,0.7); margin-bottom: 24px; line-height: 1.6; }
+.whatsapp-confirm-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #25D366;
+  color: var(--white);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 14px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+  transition: all 0.3s var(--transition-bounce);
+  border: none; cursor: pointer;
+}
+.whatsapp-confirm-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(37,211,102,0.5); }
+
+/* ===== TESTIMONIALS ===== */
+.testimonials-section {
+  background: linear-gradient(180deg, #0a0a0a 0%, #0f172a 50%, #0a0a0a 100%);
+  padding: 80px 0;
+}
+.testimonials-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+.testimonial-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 28px;
+  transition: all 0.4s var(--transition);
+  opacity: 0;
+  transform: translateY(20px);
+}
+.testimonial-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.testimonial-card:hover {
+  border-color: rgba(249,115,22,0.2);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4), 0 0 20px rgba(249,115,22,0.06);
+  transform: translateY(-4px);
+}
+.stars { display: flex; gap: 3px; margin-bottom: 16px; }
+.star { color: var(--orange); font-size: 0.9rem; }
+.testimonial-text {
+  font-size: 0.9rem;
+  color: rgba(203,213,225,0.8);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+.testimonial-author { display: flex; align-items: center; gap: 12px; }
+.author-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(249,115,22,0.3);
+  background: #1a1a2e;
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+}
+.author-info {}
+.author-name { font-size: 0.875rem; font-weight: 700; color: var(--white); }
+.author-tag { font-size: 0.7rem; color: rgba(203,213,225,0.4); margin-top: 2px; }
+
+/* ===== TRUST STRIP ===== */
+.trust-strip {
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 32px 24px;
+  background: rgba(255,255,255,0.02);
+}
+.trust-strip-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+}
+.trust-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+.trust-icon { font-size: 1.6rem; }
+.trust-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--silver); }
+
+/* ===== WHATSAPP FLOATING BTN ===== */
+.wa-float {
+  position: fixed;
+  bottom: 28px; left: 28px;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 24px rgba(37,211,102,0.4);
+  z-index: 900;
+  animation: wa-pulse 2.5s ease-in-out infinite;
+  transition: all 0.3s var(--transition-bounce);
+}
+.wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 40px rgba(37,211,102,0.6); }
+@keyframes wa-pulse {
+  0%,100%{ box-shadow: 0 4px 24px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.25); }
+  50%{ box-shadow: 0 4px 24px rgba(37,211,102,0.4), 0 0 0 14px rgba(37,211,102,0); }
+}
+.wa-float svg { width: 28px; height: 28px; fill: white; }
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #050505;
+  border-top: 1px solid var(--glass-border);
+  padding: 48px 24px 32px;
+  text-align: center;
+}
+.footer-logo {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+.footer-logo span { color: var(--orange); }
+.footer-tagline {
+  font-size: 0.82rem;
+  color: rgba(203,213,225,0.4);
+  margin-bottom: 28px;
+  letter-spacing: 0.05em;
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+.footer-links a {
+  font-size: 0.78rem;
+  color: rgba(203,213,225,0.4);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--orange); }
+.footer-copy {
+  font-size: 0.72rem;
+  color: rgba(203,213,225,0.2);
+}
+
+/* ===== CONFETTI ===== */
+.confetti-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+.confetti-piece {
+  position: absolute;
+  width: 8px; height: 8px;
+  border-radius: 2px;
+  animation: confetti-fall 3s ease-in forwards;
+}
+@keyframes confetti-fall {
+  0%{ transform: translateY(-20px) rotate(0deg); opacity: 1; }
+  100%{ transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+/* ===== ANIMATIONS / UTILITY ===== */
+.fade-in-section { opacity: 0; transform: translateY(24px); transition: all 0.7s var(--transition); }
+.fade-in-section.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .section { padding: 60px 20px; }
+  .products-grid { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; }
+  .cart-drawer { width: 100vw; }
+  .trust-strip-inner { gap: 20px; }
+}
+@media (max-width: 480px) {
+  .products-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .product-img-wrap { height: 160px; }
+  .product-info { padding: 14px; }
+  .product-name { font-size: 0.82rem; }
+  .product-price { font-size: 1.1rem; }
+  .hero-cta { padding: 14px 28px; font-size: 0.85rem; }
+  .upsell-modal, .checkout-modal { padding: 28px 22px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announcement-bar">
+  <p class="announcement-text">
+    <span class="announcement-dot"></span>
+    FREE COD
+    <span style="opacity:0.3">|</span>
+    Limited Edition Stock
+    <span style="opacity:0.3">|</span>
+    WhatsApp Confirmation
+    <span class="announcement-dot"></span>
+  </p>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-logo">Fit<span>Mart</span></div>
+  <div class="nav-actions">
+    <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      Cart
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ 100% FREE Cash On Delivery</div>
+    <h1 class="hero-title">Train Like a<br><em>Champion.</em></h1>
+    <p class="hero-subtitle">Elite Home Fitness Equipment &nbsp;|&nbsp; 100% FREE Cash On Delivery</p>
+    <button class="hero-cta" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+      Explore Collection
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+
+    <!-- Countdown -->
+    <div class="countdown-wrap">
+      <p class="countdown-label">⚡ Deal Ends In</p>
+      <div class="countdown-timer">
+        <div class="countdown-block"><div class="countdown-num" id="cdH">23</div><div class="countdown-unit">hrs</div></div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-block"><div class="countdown-num" id="cdM">59</div><div class="countdown-unit">min</div></div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-block"><div class="countdown-num" id="cdS">59</div><div class="countdown-unit">sec</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-mouse"><div class="scroll-dot"></div></div>
+    <span class="scroll-text">Scroll</span>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-strip-inner">
+    <div class="trust-item"><span class="trust-icon">🚚</span><span class="trust-label">Free Delivery</span></div>
+    <div class="trust-item"><span class="trust-icon">💵</span><span class="trust-label">Cash On Delivery</span></div>
+    <div class="trust-item"><span class="trust-icon">✅</span><span class="trust-label">100% Authentic</span></div>
+    <div class="trust-item"><span class="trust-icon">🔒</span><span class="trust-label">Secure Order</span></div>
+    <div class="trust-item"><span class="trust-icon">💬</span><span class="trust-label">WhatsApp Support</span></div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="section fade-in-section" id="products">
+  <p class="section-tag">Premium Collection</p>
+  <h2 class="section-title">Engineered for Results.</h2>
+  <p class="section-subtitle">Hand-picked fitness tools for the serious athlete. All orders delivered FREE, paid at your door.</p>
+
+  <div class="products-grid" id="productsGrid">
+    <!-- Injected by JS -->
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<div class="testimonials-section">
+  <div class="testimonials-inner fade-in-section">
+    <p class="section-tag">Real Results</p>
+    <h2 class="section-title">Trusted by Fitness Enthusiasts</h2>
+    <p class="section-subtitle" style="margin-bottom:48px;">Thousands of customers across India love Fit Mart.</p>
+    <div class="testimonials-grid" id="testimonialsGrid">
+      <!-- Injected by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">Fit<span>Mart</span></div>
+  <p class="footer-tagline">Elite Home Fitness | 100% FREE Cash On Delivery</p>
+  <div class="footer-links">
+    <a href="#hero">Home</a>
+    <a href="#products">Shop</a>
+    <a href="https://wa.me/6205593984" target="_blank">Contact</a>
+  </div>
+  <p class="footer-copy">© 2025 Fit Mart. All rights reserved. Made with ❤️ for Indian Fitness Enthusiasts.</p>
+</footer>
+
+<!-- WHATSAPP FLOATING BUTTON -->
+<a class="wa-float" href="https://wa.me/6205593984" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.854L.057 23.21c-.073.283.177.533.46.46l5.392-1.476A11.937 11.937 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.795 9.795 0 0 1-5.007-1.378l-.36-.214-3.725 1.019 1.022-3.715-.237-.38A9.775 9.775 0 0 1 2.182 12C2.182 6.574 6.574 2.182 12 2.182S21.818 6.574 21.818 12 17.426 21.818 12 21.818z"/>
+  </svg>
+</a>
+
+<!-- CART OVERLAY + DRAWER -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h2 class="cart-title">Your Cart</h2>
+    <button class="cart-close" id="cartClose">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer" id="cartFooter">
+    <div class="cart-cod-note">✅ FREE Cash On Delivery — Pay at your door.</div>
+    <div class="cart-total-row">
+      <span class="cart-total-label">Grand Total</span>
+      <span class="cart-total-val" id="cartTotal">₹0</span>
+    </div>
+    <button class="checkout-btn" id="checkoutBtn" onclick="openCheckout()">Proceed to Order →</button>
+  </div>
+</div>
+
+<!-- UPSELL MODAL -->
+<div class="modal-overlay" id="upsellOverlay">
+  <div class="upsell-modal">
+    <button class="modal-close" id="upsellClose">✕</button>
+    <div class="modal-icon">💎</div>
+    <h3 class="modal-title">Upgrade to Pro Combo</h3>
+    <p class="modal-body">Get the complete belly transformation kit. The Tummy Trimmer + Sweat Belt combo accelerates results by 3x — and it's only <strong style="color:var(--orange)">Rs.100 more</strong>.</p>
+    <div class="modal-product">
+      <img class="modal-product-img" src="https://m.media-amazon.com/images/I/71W9Fo6WPOL._SX522_.jpg" alt="Combo" loading="lazy">
+      <div class="modal-product-info">
+        <p class="modal-product-name">Double Spring Tummy Trimmer with Belly Sweat Belt</p>
+        <p class="modal-product-price">₹599 <span style="font-size:0.75rem;color:var(--silver);font-weight:400">FREE COD</span></p>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="modal-yes" id="upsellYes">Yes, Upgrade! 🔥</button>
+      <button class="modal-no" id="upsellNo">No thanks</button>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-overlay" id="checkoutOverlay">
+  <div class="checkout-modal">
+    <button class="modal-close" id="checkoutClose" style="position:absolute;top:16px;right:16px;">✕</button>
+
+    <div id="checkoutForm">
+      <p class="section-tag" style="margin-bottom:8px">Secure Checkout</p>
+      <h2 class="modal-title" style="font-family:var(--font-heading);font-size:1.4rem;color:var(--white);margin-bottom:6px;">Place Your Order</h2>
+      <p style="font-size:0.82rem;color:rgba(203,213,225,0.5);margin-bottom:24px;">100% FREE COD — No advance payment required.</p>
+
+      <form id="orderForm" action="https://formspree.io/f/mdalrnbk" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="New Fit Mart Order">
+        <input type="hidden" name="cart_summary" id="cartSummaryField">
+        <input type="hidden" name="order_total" id="orderTotalField">
+
+        <div class="form-group">
+          <label class="form-label" for="fname">Full Name *</label>
+          <input class="form-input" type="text" id="fname" name="name" placeholder="Your full name" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="fphone">Phone Number *</label>
+          <input class="form-input" type="tel" id="fphone" name="phone" placeholder="10-digit mobile number" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="faddress">Delivery Address *</label>
+          <textarea class="form-input" id="faddress" name="address" placeholder="House no., street, city, state, PIN" required></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="finstructions">Special Instructions</label>
+          <input class="form-input" type="text" id="finstructions" name="instructions" placeholder="Optional notes for delivery">
+        </div>
+
+        <div style="background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.2);border-radius:10px;padding:12px 14px;margin-bottom:20px;">
+          <p style="font-size:0.78rem;color:var(--green);font-weight:600;">✅ FREE Cash On Delivery — You pay only when your order arrives.</p>
+        </div>
+
+        <button class="submit-btn" type="submit" id="submitBtn">
+          🛒 &nbsp;Confirm Free COD Order
+        </button>
+      </form>
+    </div>
+
+    <!-- Success State -->
+    <div class="success-state" id="successState">
+      <div class="success-icon">🎉</div>
+      <h3 class="success-title">Order Placed!</h3>
+      <p class="success-msg">Your FREE COD order has been placed. Fit Mart will confirm via WhatsApp shortly.</p>
+      <a class="whatsapp-confirm-btn" href="https://wa.me/6205593984" target="_blank" rel="noopener noreferrer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.854L.057 23.21c-.073.283.177.533.46.46l5.392-1.476A11.937 11.937 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.795 9.795 0 0 1-5.007-1.378l-.36-.214-3.725 1.019 1.022-3.715-.237-.38A9.775 9.775 0 0 1 2.182 12C2.182 6.574 6.574 2.182 12 2.182S21.818 6.574 21.818 12 17.426 21.818 12 21.818z"/></svg>
+        Chat on WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- CONFETTI -->
+<div class="confetti-container" id="confettiContainer"></div>
+
+<script>
+/* ===========================
+   DATA
+=========================== */
+const PRODUCTS = [
+  {
+    id: 1,
+    name: "Double Spring Tummy Trimmer",
+    price: 499,
+    image: "https://m.media-amazon.com/images/I/71h4Rj3CDNL._SX522_.jpg",
+    trending: false,
+    bestSeller: false,
+    stock: null
+  },
+  {
+    id: 2,
+    name: "Double Spring Tummy Trimmer with Belly Sweat Belt",
+    price: 599,
+    image: "https://m.media-amazon.com/images/I/71W9Fo6WPOL._SX522_.jpg",
+    trending: true,
+    bestSeller: true,
+    stock: "Only 7 Left – Selling Fast"
+  },
+  {
+    id: 3,
+    name: "6-Way Wrist & Forearm Strengthener Ball",
+    price: 299,
+    image: "https://m.media-amazon.com/images/I/61QfLzWMoRL._SX522_.jpg",
+    trending: false,
+    bestSeller: false,
+    stock: null
+  },
+  {
+    id: 4,
+    name: "Finger & Hand Grip Strengthener",
+    price: 299,
+    image: "https://m.media-amazon.com/images/I/71pBJpbNpQL._SX522_.jpg",
+    trending: false,
+    bestSeller: false,
+    stock: null
+  },
+  {
+    id: 5,
+    name: "Adjustable Hand Grip Strengthener with Resistance Band",
+    price: 399,
+    image: "https://m.media-amazon.com/images/I/61f7yCKE-FL._SX522_.jpg",
+    trending: false,
+    bestSeller: false,
+    stock: null
+  }
+];
+
+const TESTIMONIALS = [
+  {
+    text: "Finally a fitness brand that delivers to my home and I pay only on delivery. The tummy trimmer is absolutely top quality!",
+    name: "Priya Sharma",
+    tag: "Delhi | Verified Buyer",
+    rating: 5,
+    avatar: "🏋️‍♀️"
+  },
+  {
+    text: "The combo pack is insane value. Using it every morning and the results are showing. Free COD made it a no-brainer.",
+    name: "Rahul Verma",
+    tag: "Mumbai | Verified Buyer",
+    rating: 5,
+    avatar: "💪"
+  },
+  {
+    text: "The grip strengthener has improved my rock climbing significantly. Build quality feels premium for the price.",
+    name: "Anjali Nair",
+    tag: "Bangalore | Verified Buyer",
+    rating: 5,
+    avatar: "🧘‍♀️"
+  },
+  {
+    text: "Ordered the resistance band grip strengthener. Amazing product, fast delivery and zero advance payment needed!",
+    name: "Vikram Singh",
+    tag: "Pune | Verified Buyer",
+    rating: 5,
+    avatar: "🏃‍♂️"
+  },
+  {
+    text: "The WhatsApp confirmation was instant. Delivery was smooth. Will order again for my husband too!",
+    name: "Meena Patel",
+    tag: "Surat | Verified Buyer",
+    rating: 5,
+    avatar: "⭐"
+  },
+  {
+    text: "Honestly shocked at the quality. Bought the wrist ball and it's solid. Fit Mart is my go-to fitness shop now.",
+    name: "Arjun Mehta",
+    tag: "Hyderabad | Verified Buyer",
+    rating: 5,
+    avatar: "🔥"
+  }
+];
+
+/* ===========================
+   CART STATE
+=========================== */
+let cart = JSON.parse(localStorage.getItem('fitmart_cart') || '[]');
+
+function saveCart() {
+  localStorage.setItem('fitmart_cart', JSON.stringify(cart));
+}
+
+function getCartTotal() {
+  return cart.reduce((s, i) => s + i.price * i.qty, 0);
+}
+
+function getCartCount() {
+  return cart.reduce((s, i) => s + i.qty, 0);
+}
+
+function updateCartUI() {
+  const count = getCartCount();
+  document.getElementById('cartCount').textContent = count;
+  const cartItemsEl = document.getElementById('cartItems');
+  const total = getCartTotal();
+
+  if (cart.length === 0) {
+    cartItemsEl.innerHTML = `<div class="cart-empty"><span class="cart-empty-icon">🛒</span><span>Your cart is empty</span></div>`;
+    document.getElementById('checkoutBtn').disabled = true;
+  } else {
+    document.getElementById('checkoutBtn').disabled = false;
+    cartItemsEl.innerHTML = cart.map(item => `
+      <div class="cart-item">
+        <img class="cart-item-img" src="${item.image}" alt="${item.name}" loading="lazy">
+        <div class="cart-item-info">
+          <p class="cart-item-name">${item.name}</p>
+          <p class="cart-item-price">₹${(item.price * item.qty).toLocaleString()}</p>
+          <div class="cart-item-controls">
+            <button class="qty-btn" onclick="changeQty(${item.id}, -1)">−</button>
+            <span class="qty-num">${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
+            <button class="remove-btn" onclick="removeItem(${item.id})">✕ Remove</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  document.getElementById('cartTotal').textContent = `₹${total.toLocaleString()}`;
+}
+
+function addToCart(product, skipUpsell = false) {
+  const existing = cart.find(i => i.id === product.id);
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({ ...product, qty: 1 });
+  }
+  saveCart();
+  updateCartUI();
+
+  // Upsell check
+  if (!skipUpsell && product.id === 1) {
+    const hasCombo = cart.find(i => i.id === 2);
+    if (!hasCombo) {
+      setTimeout(() => showUpsell(), 300);
+      return;
+    }
+  }
+  openCart();
+}
+
+function changeQty(id, delta) {
+  const item = cart.find(i => i.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) {
+    cart = cart.filter(i => i.id !== id);
+  }
+  saveCart();
+  updateCartUI();
+}
+
+function removeItem(id) {
+  cart = cart.filter(i => i.id !== id);
+  saveCart();
+  updateCartUI();
+}
+
+/* ===========================
+   CART DRAWER
+=========================== */
+function openCart() {
+  document.getElementById('cartOverlay').classList.add('open');
+  document.getElementById('cartDrawer').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeCart() {
+  document.getElementById('cartOverlay').classList.remove('open');
+  document.getElementById('cartDrawer').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('cartBtn').addEventListener('click', openCart);
+document.getElementById('cartClose').addEventListener('click', closeCart);
+document.getElementById('cartOverlay').addEventListener('click', closeCart);
+
+/* ===========================
+   UPSELL MODAL
+=========================== */
+function showUpsell() {
+  document.getElementById('upsellOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeUpsell() {
+  document.getElementById('upsellOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('upsellClose').addEventListener('click', () => {
+  closeUpsell();
+  openCart();
+});
+document.getElementById('upsellNo').addEventListener('click', () => {
+  closeUpsell();
+  openCart();
+});
+document.getElementById('upsellYes').addEventListener('click', () => {
+  closeUpsell();
+  const comboProduct = PRODUCTS.find(p => p.id === 2);
+  // Remove basic if they choose combo
+  cart = cart.filter(i => i.id !== 1);
+  addToCart(comboProduct, true);
+  openCart();
+});
+document.getElementById('upsellOverlay').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('upsellOverlay')) {
+    closeUpsell();
+    openCart();
+  }
+});
+
+/* ===========================
+   CHECKOUT MODAL
+=========================== */
+function openCheckout() {
+  closeCart();
+  // Populate hidden fields
+  const summary = cart.map(i => `${i.name} x${i.qty} = Rs.${i.price * i.qty}`).join('; ');
+  document.getElementById('cartSummaryField').value = summary;
+  document.getElementById('orderTotalField').value = `Rs.${getCartTotal()} (FREE COD)`;
+  document.getElementById('checkoutOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeCheckout() {
+  document.getElementById('checkoutOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('checkoutClose').addEventListener('click', closeCheckout);
+document.getElementById('checkoutOverlay').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('checkoutOverlay')) closeCheckout();
+});
+
+// Form submit
+document.getElementById('orderForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Placing Order...';
+
+  try {
+    const formData = new FormData(e.target);
+    const res = await fetch('https://formspree.io/f/mdalrnbk', {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      // Success
+      document.getElementById('checkoutForm').style.display = 'none';
+      document.getElementById('successState').style.display = 'block';
+      launchConfetti();
+      cart = [];
+      saveCart();
+      updateCartUI();
+    } else {
+      btn.textContent = 'Error. Try again.';
+      btn.disabled = false;
+    }
+  } catch (err) {
+    btn.textContent = 'Error. Try again.';
+    btn.disabled = false;
+  }
+});
+
+/* ===========================
+   CONFETTI
+=========================== */
+function launchConfetti() {
+  const container = document.getElementById('confettiContainer');
+  const colors = ['#F97316','#FB923C','#22C55E','#FFFFFF','#FBBF24','#60A5FA'];
+  for (let i = 0; i < 90; i++) {
+    const piece = document.createElement('div');
+    piece.className = 'confetti-piece';
+    piece.style.left = Math.random() * 100 + 'vw';
+    piece.style.top = '-20px';
+    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.animationDelay = Math.random() * 2.5 + 's';
+    piece.style.animationDuration = (2 + Math.random() * 2) + 's';
+    piece.style.width = (6 + Math.random() * 8) + 'px';
+    piece.style.height = (6 + Math.random() * 8) + 'px';
+    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+    container.appendChild(piece);
+    setTimeout(() => piece.remove(), 5000);
+  }
+}
+
+/* ===========================
+   RENDER PRODUCTS
+=========================== */
+function renderProducts() {
+  const grid = document.getElementById('productsGrid');
+  grid.innerHTML = PRODUCTS.map((p, idx) => `
+    <div class="product-card${p.trending ? ' trending' : ''}" style="transition-delay:${idx * 0.08}s">
+      <div class="product-img-wrap">
+        <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300/111827/F97316?text=Fit+Mart'">
+        ${p.bestSeller ? '<div class="ribbon">Best Seller</div>' : ''}
+        ${p.trending ? '<div class="trending-badge">🔥 TRENDING</div>' : ''}
+        ${p.stock ? `<div class="stock-badge">⚡ ${p.stock}</div>` : ''}
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">${p.name}</h3>
+        <div class="product-price-row">
+          <span class="product-price"><span>₹</span>${p.price}</span>
+          <span class="cod-label">FREE COD</span>
+        </div>
+        <button class="add-to-cart" onclick="handleAddToCart(event, ${p.id})">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function handleAddToCart(e, productId) {
+  // Ripple
+  const btn = e.currentTarget;
+  const ripple = document.createElement('span');
+  ripple.className = 'ripple';
+  const rect = btn.getBoundingClientRect();
+  const size = Math.max(rect.width, rect.height);
+  ripple.style.width = ripple.style.height = size + 'px';
+  ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+  ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+  btn.appendChild(ripple);
+  setTimeout(() => ripple.remove(), 700);
+
+  const product = PRODUCTS.find(p => p.id === productId);
+  addToCart(product);
+}
+
+/* ===========================
+   RENDER TESTIMONIALS
+=========================== */
+function renderTestimonials() {
+  const grid = document.getElementById('testimonialsGrid');
+  grid.innerHTML = TESTIMONIALS.map((t, idx) => `
+    <div class="testimonial-card" style="transition-delay:${idx * 0.1}s">
+      <div class="stars">${'<span class="star">★</span>'.repeat(t.rating)}</div>
+      <p class="testimonial-text">"${t.text}"</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">${t.avatar}</div>
+        <div class="author-info">
+          <p class="author-name">${t.name}</p>
+          <p class="author-tag">${t.tag}</p>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ===========================
+   INTERSECTION OBSERVER
+=========================== */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+function initObserver() {
+  document.querySelectorAll('.fade-in-section, .product-card, .testimonial-card').forEach(el => {
+    observer.observe(el);
+  });
+}
+
+/* ===========================
+   NAVBAR SCROLL
+=========================== */
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  if (window.scrollY > 60) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+}, { passive: true });
+
+/* ===========================
+   HERO IMAGE LOAD
+=========================== */
+function initHero() {
+  const bg = document.getElementById('heroBg');
+  const img = new Image();
+  img.onload = () => bg.classList.add('loaded');
+  img.src = 'https://i.ibb.co/JwbZsrVm/Gemeinsam-schwitzen-Partner-Workout-von-Fitness-Influencerin-Mad-Fit.jpg';
+}
+
+/* ===========================
+   COUNTDOWN TIMER
+=========================== */
+function initCountdown() {
+  // Check if stored, else set 24h from now
+  let endTime = localStorage.getItem('fitmart_countdown');
+  if (!endTime) {
+    endTime = Date.now() + 24 * 60 * 60 * 1000;
+    localStorage.setItem('fitmart_countdown', endTime);
+  }
+  endTime = parseInt(endTime);
+
+  function tick() {
+    const now = Date.now();
+    let diff = endTime - now;
+    if (diff <= 0) {
+      endTime = Date.now() + 24 * 60 * 60 * 1000;
+      localStorage.setItem('fitmart_countdown', endTime);
+      diff = 24 * 60 * 60 * 1000;
+    }
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cdH').textContent = String(h).padStart(2, '0');
+    document.getElementById('cdM').textContent = String(m).padStart(2, '0');
+    document.getElementById('cdS').textContent = String(s).padStart(2, '0');
+  }
+  tick();
+  setInterval(tick, 1000);
+}
+
+/* ===========================
+   INIT
+=========================== */
+document.addEventListener('DOMContentLoaded', () => {
+  renderProducts();
+  renderTestimonials();
+  updateCartUI();
+  initObserver();
+  initHero();
+  initCountdown();
+});
+</script>
+</body>
+</html>
